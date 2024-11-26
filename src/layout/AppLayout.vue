@@ -1,8 +1,10 @@
-<script setup></script>
+<script setup>
+import Navbar from './Navbar.vue'
+</script>
 
 <template>
    <div>
-      <h2 class="tw-flex tw-underline">App Layout</h2>
+      <Navbar />
       <router-view />
    </div>
 </template>
