@@ -4,6 +4,10 @@ const router = createRouter({
    history: createWebHistory(import.meta.env.BASE_URL),
    routes: [
       {
+         path:'/',
+         redirect:'/home'
+      },
+      {
          path: "/",
          component: () => import("@/layout/AppLayout.vue"),
          children: [
@@ -14,11 +18,17 @@ const router = createRouter({
                children: [
                   {
                      path: ":uri",
-                     name: "homeContent",
-                     component: () => import("@/pages/Home/Content.vue"),
+                     name: "bookDetails",
+                     component: () => import("@/pages/Home/HomeBookDetail.vue"),
                      props: true,
                   },
                ],
+              
+            },
+            {
+               path: '/cart',
+               name:'cart',
+               component: () => import("@/pages/Cart.vue"),
             },
          ],
       },

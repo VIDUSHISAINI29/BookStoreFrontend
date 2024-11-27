@@ -12,7 +12,9 @@ const bookAuthor = ref(null);
 const bookRating = ref(null);
 const bookIndex = ref(null);
 const authorParam = ref(null);
-const selectedBooksArray = ref([])
+const selectedBooksArray = ref([]);
+const bookNameLength = ref(null);
+
 
 
 import{ useGlobalStore} from "@/stores/global.js"
@@ -31,9 +33,19 @@ async function loadData() {
       `${import.meta.env.VITE_BACKEND_URL}/books-details`,
    );
    // console.log("booksDataValue = ", booksData.value);
-   bookName.value = booksData.value.map((book) => book.bookName.split("(")[0]);
+   bookName.value = booksData.value.map((book) => {
+      
+       bookName.value = book.bookName.split("(")[0];
+      bookNameLength.value = book.bookName.split(' ').length
+      
+   if(bookNameLength.value > 4)
+   {
+      bookName.value = bookName.value.slice(0,27) + '...';
+   }
+   return bookName.value
+   });
    bookImages.value = booksData.value.map((book) => book.image);
-   // console.log("book Img array", bookName.value);
+  
 }
 watch(authorParam, async (newValue, oldValue) => {
    
@@ -45,34 +57,31 @@ watch(authorParam, async (newValue, oldValue) => {
          console.log(booksData.value);
       }
    })
-   console.log(booksData.value);
-
-   console.log('author is changed from ', oldValue, 'to', newValue);
    bookImages.value = booksData.value.map((book) => book.image);
+   bookName.value = booksData.value.map((book) => {
+       bookName.value = book.bookName.split("(")[0];
+      bookNameLength.value = book.bookName.split(' ').length
+      
+   if(bookNameLength.value > 4)
+   {
+      bookName.value = bookName.value.slice(0,27) + '...';
+   }
+   return bookName.value
+   });
 
-   bookName.value = booksData.value.map((book) => book.bookName.split("(")[0]);
-   console.log('book Name ', bookName.value);
+  
+   // console.log('book Name ', bookName.value);
    
 })
-function countBooks(id){
-   const arrayOfBooks = [];
-   
-   arrayOfBooks.push(id);
-   console.log('id = ', arrayOfBooks);
 
-   if(!arrayOfBooks.includes(id) ){
-      global.numberOfBooks++
-   }
-console.log('global Value inside function', global.numberOfBooks);
-
-}
 onMounted(async () => {
    await loadData();
+   
 });
 </script>
 <template>
    <div
-      class="tw-flex tw-w-[1100px] tw-flex-col tw-items-center tw-gap-14 tw-rounded-lg tw-bg-[#ffe19f] tw-p-14">
+      class="tw-flex tw-w-[1100px] tw-flex-col  tw-gap-14 tw-rounded-lg tw-bg-[#ffe19f] tw-p-14">
       <div class="tw-flex tw-w-[550px]  tw-p-1">
          <input
             placeholder="Search by Author"
@@ -89,7 +98,7 @@ onMounted(async () => {
       <div
          v-for="(book, index) in booksData"
          :key="index"
-         class="tw-relative tw-flex tw-h-[500px] tw-w-72 tw-flex-col tw-gap-1 tw-rounded-xl tw-bg-[#fff] tw-font-semibold">
+         class="tw-relative tw-flex tw-h-[450px] tw-w-72 tw-flex-col tw-items-center tw-gap-1 tw-rounded-xl tw-bg-[#fff] tw-font-semibold">
          <div class="tw-overflow-hidden">
             <img
                class="tw-h-80 tw-w-72 tw-rounded-tl-xl tw-rounded-tr-xl tw-transition-transform tw-duration-500 hover:tw-scale-95"
@@ -97,22 +106,25 @@ onMounted(async () => {
                alt="" />
          </div>
          <span
-            class="tw-block tw-px-3 tw-text-lg tw-font-bold tw-text-yellow-800">
+            class="tw-block tw-px-1 tw-text-lg tw-font-bold tw-text-yellow-800">
             {{ bookName[index] }}
          </span>
-         <span class="tw-block tw-px-3 tw-text-base tw-text-yellow-700">
+         <span class="tw-block tw-px-1 tw-text-base tw-text-yellow-700">
             ~By {{ book.author }}
          </span>
+         <!-- <span class="tw-block tw-px-3 tw-text-base tw-text-black">
+            Price : {{ book.price }}
+         </span> -->
          <span
-            class="tw-block tw-w-full tw-px-3 tw-text-start tw-text-base tw-text-[#020933]">
+            class=" tw-px-1 tw-text-start tw-text-base tw-text-[#020933]">
             Rating : {{ book.rating }}
          </span>
          <div
-            class="tw-absolute tw-bottom-5 tw-right-0 tw-flex tw-w-full tw-justify-end tw-pr-8">
-            <span @click="countBooks(book.index)"
-               class="tw-w-28 tw-cursor-pointer tw-rounded-2xl tw-bg-yellow-600 tw-px-3 tw-py-1 tw-text-base tw-text-[#020933]">
-               Add to cart
-            </span>
+            class="tw-absolute tw-bottom-4 tw-right-4 tw-flex tw-w-full tw-justify-end ">
+            <router-link :to="`/home/${book.index}`"
+               class="tw-w-16 tw-cursor-pointer tw-border-2 tw-border-yellow-600 hover:tw-border-[#020933] hover:tw-bg-[#020933] hover:tw-text-white tw-transition-colors tw-duration-500 tw-rounded-2xl tw-bg-yellow-600 tw-text-center tw-py-1 tw-text-sm tw-text-[#020933] ">
+               View
+            </router-link>
          </div>
       </div>
      </div>

@@ -3,7 +3,8 @@ import { useRoute } from "vue-router";
 import {onMounted, ref} from 'vue';
 import axios from "axios";
 import {color} from "echarts";
-import Cards from '@/components/Cards.vue'
+import HomeCards from './HomeCards.vue'
+
 
 const route = useRoute();
 const booksData = ref(null);
@@ -32,7 +33,7 @@ onMounted(async () => {
           <span class="tw-text-[#020933] tw-text-5xl tw-font-semibold">Let the Pages Turn You !</span>   
          <span class="tw-text-yellow-600 tw-text-2xl ">Unfold new worlds, one page at a time. Our Book Fair is a sanctuary for curious minds, where stories spark imagination, and knowledge flows freely. Find your next great escape or timeless wisdom, all in one place.</span></div>
       </div>
-      <Cards />
+     <HomeCards />
      </div>
      
    </div>
