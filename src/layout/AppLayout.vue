@@ -3,7 +3,7 @@ import Navbar from './Navbar.vue'
 </script>
 
 <template>
-   <div>
+   <div class="tw-relative">
       <Navbar />
       <router-view />
    </div>

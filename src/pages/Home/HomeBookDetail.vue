@@ -12,6 +12,7 @@ const global = useGlobalStore();
 
 const booksData = ref(null);
 const quantity = ref(1);
+const totalPrice = ref(null);
 const selectedBook = ref(null);
 const rate = ref(null);
 const nonRate = ref(null);
@@ -42,7 +43,7 @@ function updateSelectedBook() {
       selectedBook.value = book;
       rate.value = parseInt(selectedBook.value.rating.slice(0, 1));
       nonRate.value = 5 - rate.value;
-        selectedBook.value.price = '$'+selectedBook.value.price.slice(1,4) * quantity.value;
+      totalPrice.value = '₹'+selectedBook.value.price.slice(1,4) * quantity.value;
    } else {
       console.error("No book found for uri:", props.uri);
       selectedBook.value = null;
@@ -74,11 +75,25 @@ function countBooks(id){
    
    global.arrayOfBooks.push(id);
    console.log('id = ', global.arrayOfBooks);
-   const count = global.arrayOfBooks.filter(book => book === id).length;
-   console.log('count', count);
+  
+   const count = global.arrayOfBooks.filter(bookId => bookId === id).length;
+
+   const cartedBook = booksData.value.find((b) => b.index == id)
+ 
+   console.log(
+      'count : ',count
+   );
    
-   if(count <= 1){
+   if(count == 1){
       global.numberOfBooks++
+
+      if(cartedBook){
+      global.globalSelectedBook.push(cartedBook);
+   global.globalQuantity.push(quantity.value)
+    
+      console.log(' global Quanityt' , global.globalQuantity);
+      
+   }
    }
 console.log('global Value inside function', global.numberOfBooks);
 
@@ -86,7 +101,7 @@ console.log('global Value inside function', global.numberOfBooks);
 </script>
 <template>
    <div
-      class="tw-flex tw-h-full tw-w-full tw-flex-col tw-items-center tw-p-3 tw-text-center tw-text-black">
+      class="tw-flex tw-h-full  tw-w-full tw-flex-col tw-items-center tw-p-3 tw-text-center tw-text-black">
       <div v-if="selectedBook" class="tw-mt-20 tw-mb-10 tw-flex tw-w-3/4">
          <div>
             <img
@@ -104,10 +119,10 @@ console.log('global Value inside function', global.numberOfBooks);
             </span>
             <span class="tw-h-[1px] tw-w-full tw-bg-black"></span>
             <span class="tw-mt-3 tw-text-lg tw-font-semibold tw-my-4 tw-text-black">
-               Quantity : <input type="number" v-model="quantity" class="tw-bg-yellow-200  tw-rounded-xl tw-outline-none tw-text-sm tw-p-2 tw-text-[#020933]" placeholder=" Enter quantity...">
+               Quantity : <input type="number" v-model="quantity" class="tw-bg-[#ffe19f]  tw-rounded-xl tw-outline-none tw-text-sm tw-p-2 tw-text-[#020933]" placeholder=" Enter quantity...">
             </span>
             <span class="tw-text-lg tw-font-semibold tw-text-black">
-               Price : {{ selectedBook.price }}
+               Price : {{ totalPrice }}
             </span>
             <span class="tw-h-[1px] tw-w-full tw-bg-black"></span>
 
