@@ -81,7 +81,7 @@ onMounted(async () => {
 </script>
 <template>
    <div
-      class="tw-flex tw-w-[1100px] tw-flex-col  tw-gap-14 tw-rounded-lg tw-bg-[#ffe19f] tw-p-14">
+      class="tw-flex tw-my-20 tw-mb-32 tw-w-[1100px] tw-flex-col  tw-gap-14 tw-rounded-lg tw-bg-[#ffe19f] tw-p-14">
       <div class="tw-flex tw-w-[550px]  tw-p-1">
          <input
             placeholder="Search by Author"

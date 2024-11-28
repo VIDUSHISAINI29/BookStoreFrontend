@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       boxShadow: {
-        bShadow: '0px 0px 12px 12px #020933',
+        'whiteShadow': '0px 0px 20px 1px rgba(250, 250, 250)', // Custom shadow with teal color
       },
       colors:{
         col: '#020933'

@@ -9,21 +9,21 @@ const global = useGlobalStore();
         <div class="">
             <img class="tw-w-14 tw-cursor-pointer tw-h-14 tw-rounded-[50%]" src="/images/booksLogo.jpeg" alt="logo">
         </div>
-        <div class="tw-flex tw-gap-9">
-            <div class="tw-flex tw-flex-col">
-                <router-link to="/home" class="tw-text-[#020933]  hover:tw-bg-[#020933] tw-rounded-tl-lg  tw-rounded-tr-lg hover:tw-text-white tw-py-[1px] tw-px-[6px]  tw-cursor-pointer  tw-font-semibold tw-transition-colors tw-duration-200 tw-ease-in tw-text-[16px] ">Home</router-link>
+        <div class="tw-flex tw-gap-9 tw-ml-40 tw-text-base">
+            <div class="tw-flex tw-flex-col ">
+                <router-link to="/home" class="tw-text-[#020933]  hover:tw-bg-[#020933] tw-rounded-tl-md  tw-rounded-tr-md hover:tw-text-white tw-py-[3px] tw-px-3 tw-cursor-pointer  tw-font-semibold tw-transition-colors tw-duration-200 tw-ease-in  ">Home</router-link>
                 <span class="tw-bg-[#020933] tw-h-[2px]"></span>
             </div>
             <div class="tw-flex tw-flex-col">
-                <span class="tw-text-[#020933] hover:tw-bg-[#020933] tw-rounded-tl-lg  tw-rounded-tr-lg hover:tw-text-white tw-py-[1px] tw-px-[6px]    tw-cursor-pointer  tw-font-semibold tw-transition-colors tw-duration-200 tw-ease-in tw-text-[16px] ">Services</span>
+                <span class="tw-text-[#020933] hover:tw-bg-[#020933] tw-rounded-tl-md  tw-rounded-tr-md hover:tw-text-white tw-py-[3px] tw-px-3   tw-cursor-pointer  tw-font-semibold tw-transition-colors tw-duration-200 tw-ease-in  ">Services</span>
                 <span class="tw-bg-[#020933] tw-h-[2px]"></span>
             </div>
             <div class="tw-flex tw-flex-col">
-                <span class="tw-text-[#020933] hover:tw-bg-[#020933] tw-rounded-tl-lg  tw-rounded-tr-lg hover:tw-text-white tw-py-[1px] tw-px-[6px]  tw-cursor-pointer  tw-font-semibold tw-transition-colors tw-duration-200 tw-ease-in tw-text-[16px] ">About Us</span>
+                <span class="tw-text-[#020933] hover:tw-bg-[#020933] tw-rounded-tl-md  tw-rounded-tr-md hover:tw-text-white tw-py-[3px] tw-px-3 tw-cursor-pointer  tw-font-semibold tw-transition-colors tw-duration-200 tw-ease-in  ">About Us</span>
                 <span class="tw-bg-[#020933] tw-h-[2px]"></span>
             </div>
             <div class="tw-flex tw-flex-col">
-                <span class="tw-text-[#020933] hover:tw-bg-[#020933] tw-rounded-tl-lg  tw-rounded-tr-lg hover:tw-text-white tw-py-[1px] tw-px-[6px]    tw-cursor-pointer  tw-font-semibold tw-transition-colors tw-duration-200 tw-ease-in tw-text-[16px] ">Contact Us</span>
+                <a href="#sectionContacts" class="tw-text-[#020933] hover:tw-bg-[#020933] tw-rounded-tl-md  tw-rounded-tr-md hover:tw-text-white tw-py-[3px] tw-px-3   tw-cursor-pointer  tw-font-semibold tw-transition-colors tw-duration-200 tw-ease-in">Contact Us</a>
                 <span class="tw-bg-[#020933] tw-h-[2px]"></span>
             </div>
         </div>
@@ -32,7 +32,7 @@ const global = useGlobalStore();
             <RouterLink to="/cart" class="ri-shopping-cart-2-fill tw-cursor-pointer tw-text-[#020933] tw-text-4xl"></RouterLink>
             <span class="tw-block tw-absolute tw-top-0 tw-right-0 tw-w-4 tw-h-4 tw-rounded-[50%] tw-font-bold tw-bg-[#ffe19f] tw-text-[11px] tw-text-[#020933] tw-text-center">{{ global.numberOfBooks }}</span>
            </div>
-            <span class="tw-text-white tw-border-2 tw-border-[#020933] tw-transition-all tw-duration-200 tw-cursor-pointer tw-border-2-[#020933] hover:tw-bg-[#ffe19f] tw-font-semibold hover:bShadow tw-p-[1px] tw-flex tw-justify-center tw-items-center tw-px-[9px] tw-rounded-3xl tw-bg-[#020933] hover:tw-text-[#020933] hover:tw-border-2-[#020933]">Logout</span>
+            <span class="tw-text-white tw-border-2 tw-border-[#020933] tw-transition-all tw-duration-200 tw-cursor-pointer tw-border-2-[#020933] hover:tw-bg-[#ffe19f] tw-font-semibold hover:bShadow tw-p-0 tw-text-base tw-flex tw-justify-center tw-items-center tw-px-3 tw-rounded-3xl tw-bg-[#020933] hover:tw-text-[#020933] hover:tw-border-2-[#020933]">Logout</span>
         </div>
     </div>
 </template>

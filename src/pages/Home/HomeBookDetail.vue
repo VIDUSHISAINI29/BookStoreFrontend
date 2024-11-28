@@ -31,7 +31,7 @@ async function loadData() {
       booksData.value = await fetchData(
          `${import.meta.env.VITE_BACKEND_URL}/books-details`,
       );
-      console.log("Fetched booksData:", booksData.value);
+      // console.log("Fetched booksData:", booksData.value);
    }
 }
 
@@ -50,7 +50,7 @@ function updateSelectedBook() {
    }
 }
 onMounted(async () => {
-   await console.log("propsUri ", props.uri);
+   // await console.log("propsUri ", props.uri);
    await loadData();
    updateSelectedBook();
 });
@@ -74,28 +74,19 @@ updateSelectedBook()
 function countBooks(id){
    
    global.arrayOfBooks.push(id);
-   console.log('id = ', global.arrayOfBooks);
+   // console.log('id = ', global.arrayOfBooks);
   
    const count = global.arrayOfBooks.filter(bookId => bookId === id).length;
 
    const cartedBook = booksData.value.find((b) => b.index == id)
- 
-   console.log(
-      'count : ',count
-   );
-   
-   if(count == 1){
+   if(count === 1){
       global.numberOfBooks++
 
       if(cartedBook){
       global.globalSelectedBook.push(cartedBook);
    global.globalQuantity.push(quantity.value)
-    
-      console.log(' global Quanityt' , global.globalQuantity);
-      
    }
    }
-console.log('global Value inside function', global.numberOfBooks);
 
 }
 </script>
