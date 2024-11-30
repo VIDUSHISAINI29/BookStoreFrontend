@@ -82,8 +82,12 @@ watch(global.globalSelectedBook, async (newValue, oldValue) => {
 
 
 async function makePayment() {
+   if(GrandTotalPrice.value === 0){
+      alert('Select Item To Buy')
+   }
+  else{
    const stripe = await loadStripe(
-      "pk_test_51QI7TFFhrY9kAnOUulUcBB0eCzbViF7a6yGQYhSQHF1PXcrzeJ06LjcEfbWot1tfAGJQ5Y7sNkbioCMjDfWxaQoU00pJ03zTns",
+      "pk_test_51QI7KACIEPPiVuoMvRzvpob8SYpLse3Rsro4w2XADTAqPycbcJJreif4aQuIfkBDxly9PGtPqmByYRfH1kMx2OMQ008r15oZ34",
    );
 
    const body = {
@@ -92,13 +96,14 @@ async function makePayment() {
          name: 'Books From Online Book Fair',
          booked: "yes",
          price: GrandTotalPrice.value,
+         qty: 1,
       }]
    }
 
    const headers = {
       "Content-Type":"application/json"
    }
-   const response = await fetch("http:/api/localhost:5000/create-checkout-session", {
+   const response = await fetch("http://localhost:5000/api/create-checkout-session", {
       method:"POST",
       headers:headers,
       body:JSON.stringify(body)
@@ -112,12 +117,13 @@ async function makePayment() {
    if(result.error){
       console.log('error in fetching ',result.error)
    }
+  }
 }
 
 
 </script>
 <template>
-   <div class="tw-flex tw-w-full tw-items-center tw-justify-center tw-p-2">
+   <div class="tw-flex tw-w-full  tw-items-center tw-justify-center tw-p-2">
       <div class="tw-my-14 tw-w-[880px] tw-p-2">
          <div class="tw-flex tw-justify-center tw-bg-gray-200 tw-text-lg tw-font-bold tw-border-2 tw-border-[#020933]">
             <span

@@ -70,7 +70,6 @@ updateSelectedBook()
 // console.log('quanitt', quantity.value);
 
 })
-
 function countBooks(id){
    
    global.arrayOfBooks.push(id);
@@ -128,7 +127,7 @@ function countBooks(id){
                </div>
             </div>
             <span @click="countBooks(selectedBook.index)"
-               class="tw-my-3 tw-flex tw-h-10 tw-w-32 tw-cursor-pointer tw-items-center tw-justify-center tw-rounded-3xl tw-bg-yellow-600 tw-text-lg tw-font-semibold tw-text-[#020933] tw-transition-colors tw-duration-700 hover:tw-bg-[#020933] hover:tw-text-white">
+               class="addCart tw-my-3 tw-flex tw-h-10 tw-w-32 tw-cursor-pointer tw-items-center tw-justify-center tw-rounded-3xl tw-bg-yellow-600 tw-text-lg tw-font-semibold tw-text-[#020933] tw-transition-colors tw-duration-700 hover:tw-bg-[#020933] hover:tw-text-white">
                Add to Cart
             </span>
             <span class="tw-h-[1px] tw-w-full tw-bg-black"></span>

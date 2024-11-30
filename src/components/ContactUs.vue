@@ -86,8 +86,8 @@ function sendEmail() {
                   </form>
                   <span class="tw-text-black tw-absolute tw-top-0">{{ statusMessage }}</span>
                </div>
-               <div class="tw-w-4/5 tw-flex  tw-justify-around tw-gap-20">
-                  <div class="tw-flex tw-gap-1 tw-w-60 tw-text-[#020933] tw-font-semibold tw-text-lg  tw-p-1">
+               <div class="tw-w-4/5 tw-flex tw-my-20 tw-justify-around tw-gap-20">
+                  <div class="tw-flex  tw-gap-1 tw-w-60 tw-text-[#020933] tw-font-semibold tw-text-lg  tw-p-1">
                      <div class="tw-w-14 hover:tw-shadow-whiteShadow hover:tw-bg-white  hover:tw-border-yellow-600 tw-cursor-pointer tw-transition-colors tw-duration-300  tw-text-center tw-flex tw-justify-center tw-items-center tw-border-2 tw-border-[#020933] tw-p-1">
                      <i class="ri-phone-line hover:tw-text-sky-600  tw-transition-colors tw-duration-300 hover:tw-bg-white tw-text-4xl"></i>
                     </div>

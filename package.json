@@ -9,6 +9,7 @@
       "preview": "vite preview"
    },
    "dependencies": {
+      "@auth0/auth0-vue": "^2.3.3",
       "@emailjs/browser": "^4.4.1",
       "@primevue/themes": "^4.0.4",
       "@stripe/stripe-js": "^5.2.0",
