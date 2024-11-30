@@ -1,6 +1,7 @@
 <script setup>
 import { useGlobalStore } from "@/stores/global.js";
 import { onMounted, ref, watch } from "vue";
+import { loadStripe } from "@stripe/stripe-js";
 const global = useGlobalStore();
 const booksImagesArray = ref([]);
 const booksNamesArray = ref([]);
@@ -10,6 +11,7 @@ const arrayForLoop = ref([]);
 const GrandTotalPrice = ref(0);
 const unitPricesArray = ref([]);
 const removingBookIndex = ref(null);
+
 
 async function makeArraysReady() {
    booksImagesArray.value = []; // Reset the array
@@ -77,6 +79,42 @@ onMounted(async () => {
 watch(global.globalSelectedBook, async (newValue, oldValue) => {
    await makeArraysReady();
 });
+
+
+async function makePayment() {
+   const stripe = await loadStripe(
+      "pk_test_51QI7TFFhrY9kAnOUulUcBB0eCzbViF7a6yGQYhSQHF1PXcrzeJ06LjcEfbWot1tfAGJQ5Y7sNkbioCMjDfWxaQoU00pJ03zTns",
+   );
+
+   const body = {
+      products:
+      [{
+         name: 'Books From Online Book Fair',
+         booked: "yes",
+         price: GrandTotalPrice.value,
+      }]
+   }
+
+   const headers = {
+      "Content-Type":"application/json"
+   }
+   const response = await fetch("http:/api/localhost:5000/create-checkout-session", {
+      method:"POST",
+      headers:headers,
+      body:JSON.stringify(body)
+   })
+
+   const session = await response.json();
+
+   const result = stripe.redirectToCheckout({
+      sessionId:session.id
+   })
+   if(result.error){
+      console.log('error in fetching ',result.error)
+   }
+}
+
+
 </script>
 <template>
    <div class="tw-flex tw-w-full tw-items-center tw-justify-center tw-p-2">
@@ -163,11 +201,15 @@ watch(global.globalSelectedBook, async (newValue, oldValue) => {
                class="tw-flex tw-w-80 tw-items-center tw-justify-center  tw-p-1  tw-text-[#020933]">
                ₹{{ GrandTotalPrice }}
             </span>
-            <span
+            <span @click="makePayment"
                class="tw-my-3 tw-flex tw-h-10 tw-w-32 tw-cursor-pointer tw-items-center tw-justify-center tw-rounded-3xl tw-bg-yellow-600   tw-text-[#020933] tw-transition-colors tw-duration-700 hover:tw-bg-[#020933] hover:tw-text-white">
                Payment
             </span>
+           
+    
          </div>
       </div>
+      
+   
    </div>
 </template>

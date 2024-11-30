@@ -11,6 +11,8 @@
    "dependencies": {
       "@emailjs/browser": "^4.4.1",
       "@primevue/themes": "^4.0.4",
+      "@stripe/stripe-js": "^5.2.0",
+      "@vue-stripe/vue-stripe": "^4.5.0",
       "axios": "^1.7.3",
       "cors": "^2.8.5",
       "dayjs": "^1.11.13",

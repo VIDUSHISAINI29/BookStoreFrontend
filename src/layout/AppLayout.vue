@@ -8,7 +8,7 @@ import ContactUs from '@/components/ContactUs.vue'
    <div class="tw-relative">
       <Navbar />
       <router-view />
-      <ContactUs />
+     
       <Footer />
    </div>
 </template>
