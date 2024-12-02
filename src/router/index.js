@@ -12,6 +12,7 @@ const router = createRouter({
       {
          path: "/",
          component: () => import("@/layout/AppLayout.vue"),
+         
          children: [
             {
                path: "/home",
@@ -60,31 +61,39 @@ const router = createRouter({
                meta: {requiresAuth: true},
             },
             {
-               path: '/login',
-               name:'login',
-               component: () => import("@/pages/Login.vue"),
+               path: '/profile',
+               name:'profile',
+               component: () => import("@/pages/Profile.vue"),
+               meta: {requiresAuth: true},
             },
-            {
-               path: '/log-out',
-               name:'logout',
-               component: () => import("@/pages/Logout.vue"),
-            },
+           
          ],
+         
+      },
+      {
+         path: '/login',
+         name:'login',
+         component: () => import("@/pages/Login.vue"),
+      },
+      {
+         path: '/log-out',
+         name:'logout',
+         component: () => import("@/pages/Logout.vue"),
       },
    ],
 });
 
 
-router.beforeResolve(async (to, from, next) => {
-   const { isAuthenticated } = useAuth0();
-   if(to.meta.requiresAuth && !isAuthenticated.value)
-   {
-      console.log('user is not true. redirecting to login...');
-      next({name: "login"})
-   }
-   else{
-      next();
-   }
-})
+// router.beforeResolve(async (to, from, next) => {
+//    const { isAuthenticated } = useAuth0();
+//    if(to.meta.requiresAuth && !isAuthenticated.value)
+//    {
+//       console.log('user is not true. redirecting to login...');
+//       next({name: "login"})
+//    }
+//    else{
+//       next();
+//    }
+// })
 
 export default router;

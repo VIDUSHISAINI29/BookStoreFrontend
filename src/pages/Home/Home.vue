@@ -1,11 +1,19 @@
 <script setup>
 import { useRoute } from "vue-router";
-import {onMounted, ref} from 'vue';
+import {onMounted, ref, watch, watchEffect} from 'vue';
 import axios from "axios";
 import {color} from "echarts";
 import HomeCards from './HomeCards.vue'
 import ContactUs from '../../components/ContactUs.vue'
+import { useAuth0 } from "@auth0/auth0-vue";
+import { useGlobalStore } from "@/stores/global";
+const global = useGlobalStore();
+const userInfo = ref(null)
+const tempIsAuthenticated = ref(null);
 
+// const { user, isAuthenticated, isLoading } =  useAuth0();
+// userInfo.value =  user;
+// global.profileEmail = user.value.email;
 
 const route = useRoute();
 const booksData = ref(null);

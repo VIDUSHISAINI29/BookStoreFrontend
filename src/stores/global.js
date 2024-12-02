@@ -5,5 +5,8 @@ export const useGlobalStore = defineStore('global', () => {
     const arrayOfBooks = ref([]);
     const globalSelectedBook = ref([]);
     const globalQuantity = ref([]);
-    return { numberOfBooks, arrayOfBooks, globalSelectedBook, globalQuantity }
+    const profileImg = ref('/images/profileIcon.png');
+    const profileName = ref('');
+    const profileEmail = ref('');
+    return { numberOfBooks, arrayOfBooks, globalSelectedBook, globalQuantity, profileImg, profileName, profileEmail }
 })

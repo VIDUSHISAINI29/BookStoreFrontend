@@ -1,6 +1,7 @@
 <script setup>
 import { useAuth0 } from '@auth0/auth0-vue';
 import { onMounted } from 'vue';
+import Navbar from '@/layout/Navbar.vue'
   
  
 const { loginWithRedirect } = useAuth0();
@@ -18,6 +19,7 @@ function handleLogin(){
   </script>
   
 <template>
+  <Navbar />
   <div class="tw-flex tw-h-screen tw-items-center tw-justify-center">
     <div 
       @click="handleLogin"
