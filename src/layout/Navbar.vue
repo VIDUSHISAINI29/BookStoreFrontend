@@ -26,7 +26,7 @@ const showLogout = ref(false);
         <div class="">
             <img class="tw-w-14 tw-cursor-pointer tw-h-14 tw-rounded-[50%]" src="/images/booksLogo.jpeg" alt="logo">
         </div>
-        <div class="tw-flex tw-gap-9  tw-ml-40 tw-text-base">
+        <div class="tw-flex tw-gap-9 xxs-300:tw-hidden tw-ml-40 tw-text-base">
             <div class="tw-flex tw-flex-col ">
                 <router-link to="/home" class="tw-text-[#020933]  hover:tw-bg-[#020933] tw-rounded-tl-md  tw-rounded-tr-md hover:tw-text-white tw-py-[3px] tw-px-3 tw-cursor-pointer  tw-font-semibold tw-transition-colors tw-duration-200 tw-ease-in  ">Home</router-link>
                 <span class="tw-bg-[#020933] tw-h-[2px]"></span>

@@ -64,7 +64,7 @@ watch(authorParam, async (newValue, oldValue) => {
       
    if(bookNameLength.value > 4)
    {
-      bookName.value = bookName.value.slice(0,27) + '...';
+      bookName.value = book.bookName.slice(0, 27)+ '...';
    }
    return bookName.value
    });
@@ -81,24 +81,24 @@ onMounted(async () => {
 </script>
 <template>
    <div
-      class="tw-flex tw-my-20 tw-mb-32 tw-w-[1100px] tw-flex-col  tw-gap-14 tw-rounded-lg tw-bg-[#ffe19f] tw-p-14">
-      <div class="tw-flex tw-w-[550px]  tw-p-1">
+      class="tw-flex xxs-300:tw-my-3 tw-my-20 tw-mb-32 xxs-300:tw-w-[314px] xs-400:tw-w-[395px] xs-500:tw-w-[495px] sm:tw-w-[640px] md:tw-w-[750px] lg:tw-w-[1020px] xl:tw-w-[1100px] tw-flex-col  tw-gap-14 tw-rounded-lg tw-py-6 tw-bg-[#ffe19f] lg:tw-p-14">
+      <div class="tw-flex tw-w-[550px] xxs-300:tw-w-full  tw-justify-center tw-p-1 xxs-300:tw-text-[13px] lg:tw-text-base">
          <input
             placeholder="Search by Author"
-            class="tw-w-[450px] tw-rounded-bl-xl tw-rounded-tl-xl tw-border-2 tw-border-yellow-600 tw-p-2 tw-text-[#020933] tw-outline-none"
+            class="sm:tw-w-[450px]  xxs-300:tw-w-[220px] xs-400:tw-w-[250px] tw-rounded-bl-xl tw-rounded-tl-xl tw-border-2 tw-text-[#020933] tw-border-yellow-600 tw-p-2  tw-outline-none"
             type="text"
             v-model="authorParam" />
          <button
-            class="tw-w-[100px] tw-rounded-br-xl tw-rounded-tr-xl tw-bg-yellow-600 tw-p-2 tw-text-[#020933]">
+            class="sm:tw-w-[100px] xxs-300:tw-w-[80px] xs-400:tw-w-[87px] tw-rounded-br-xl tw-rounded-tr-xl tw-bg-yellow-600 tw-p-2 tw-text-[#020933]">
             Search
          </button>
       </div>
 
-     <div class="tw-flex  tw-flex-wrap tw-gap-14 tw-w-full">
+     <div class="tw-flex  tw-flex-wrap tw-flex-row tw-items-center tw-justify-center  xxs-300:tw-gap-6  xl:tw-gap-14 lg:tw-gap-4 sm:tw-gap-4 tw-w-full">
       <div
          v-for="(book, index) in booksData"
          :key="index"
-         class="tw-relative tw-flex tw-h-[450px] tw-w-72 tw-flex-col tw-items-center tw-gap-1 tw-rounded-xl tw-bg-[#fff] tw-font-semibold">
+         class="tw-relative tw-flex tw-h-[450px]  xxs-300:tw-w-60  xs-400:tw-w-72 tw-flex-col tw-items-center tw-gap-1 tw-rounded-xl tw-bg-[#fff] tw-font-semibold">
          <div class="tw-overflow-hidden">
             <img
                class="tw-h-80 tw-w-72 tw-rounded-tl-xl tw-rounded-tr-xl tw-transition-transform tw-duration-500 hover:tw-scale-95"
