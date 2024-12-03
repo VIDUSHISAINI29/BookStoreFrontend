@@ -24,7 +24,7 @@ const showLogout = ref(false);
    
     <div class="tw-w-full tw-z-10 tw-sticky tw-top-0 tw-flex tw-justify-between col tw-bg-yellow-600 tw-p-1 tw-px-6 tw-items-center">
         <div class="">
-            <img class="tw-w-14 tw-cursor-pointer tw-h-14 tw-rounded-[50%]" src="/images/booksLogo.jpeg" alt="logo">
+            <img class="tw-w-14 tw-cursor-pointer  xxs-300:tw-h-10 xxs-300:tw-w-10 tw-h-14 tw-rounded-[50%]" src="/images/booksLogo.jpeg" alt="logo">
         </div>
         <div class="tw-flex tw-gap-9 xxs-300:tw-hidden tw-ml-40 tw-text-base">
             <div class="tw-flex tw-flex-col ">
