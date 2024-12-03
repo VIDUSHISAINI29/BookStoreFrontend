@@ -137,7 +137,7 @@ function countBooks(id){
                     <span class="tw-border-2 tw-border-[#020933] lg:tw-w-14 lg:tw-h-14 md:tw-w-12 md:tw-h-12 xs-500:tw-w-9 xs-500:tw-h-9 xxs-300:tw-w-6 xxs-300:tw-h-6 tw-rounded-[50%] tw-flex tw-justify-center tw-items-center tw-cursor-pointer">
                         <i :class="['xxs-300:tw-text-base xs-500:tw-text-xl md:tw-text-3xl lg:tw-text-4xl tw-text-yellow-600', icon]"></i>
                     </span>
-                    <span class="tw-text-[#020933] tw-block lg:tw-text-[12px] xs-500:tw-text-[10px] xs-300:tw-text-[8px] tw-w-10 tw-text-center xxs-300:tw-text-wrap md:tw-gap-10 xxs-300:tw-font-semibold md:tw-font-bold">{{ adjectivesArray[index] }}</span>
+                    <span class="tw-text-[#020933] tw-block lg:tw-text-[12px] xs-500:tw-text-[10px] xxs-300:tw-text-[8px] tw-w-10 tw-text-center xxs-300:tw-text-wrap md:tw-gap-10 xxs-300:tw-font-semibold md:tw-font-bold">{{ adjectivesArray[index] }}</span>
                  </div>
                 </div>
          </div>

@@ -119,12 +119,59 @@ async function makePayment() {
    }
   }
 }
+console.log(global.numberOfBooks);
 
 
 </script>
 <template>
-   <div class="tw-flex tw-w-full  tw-items-center tw-justify-center tw-p-2">
-      <div class="tw-my-14 tw-w-[880px] tw-p-2">
+   <div class="tw-flex tw-w-full tw-bg-gray-100 tw-items-center tw-justify-center tw-p-2">
+      <div class="tw-my-10 tw-w-full lg:tw-hidden tw-flex tw-flex-col tw-items-center">
+         <div v-if="global.numberOfBooks == 0" class="tw-my-7 tw-flex tw-flex-col tw-gap-4 tw-items-center tw-justify-center"> 
+      <img class="tw-w-52 tw-rounded-md tw-shadow-2xl tw-h-40" src="/images/emptyCart.jpg" alt="">
+      <span class="tw-text-[#020933] tw-font-semibold tw-text-lg">
+            Select Item to buy.
+         </span>
+   </div>
+         <div      v-for="(book, index) in global.globalSelectedBook"
+            :key="index" class="tw-flex tw-flex-col tw-bg-white sm:tw-w-11/12 tw-w-full tw-mt-4 tw-shadow-2xl tw-rounded-lg lg:tw-hidden sm:tw-p-3 tw-p-1">
+           
+            <div class="tw-flex ">
+               <img class="tw-h-20 tw-w-16 sm:tw-w-20 sm:tw-h-24" :src="booksImagesArray[index]" alt="">
+            
+               <div class="tw-flex tw-flex-col tw-relative sm:tw-p-3 tw-w-4/5">
+                  <span class="tw-text-[13px] sm:tw-text-base tw-px-1 tw-text-[#020933] tw-font-semibold"> {{ booksNamesArray[index] }}</span>
+                  <span class="tw-text-[11px] sm:tw-text-sm tw-px-1 tw-text-[#020933]">  Quantity : {{ global.globalQuantity[index] }}</span>
+                  <span class="tw-text-[13px] sm:tw-text-base tw-px-1 tw-text-[#020933] tw-font-semibold">Price:  ₹{{ booksTotalPriceArray[index] }}</span>
+                  <span @click="addQuantity(index)" class="tw-text-[13px]  sm:tw-text-base tw-px-1 tw-font-semibold tw-rounded-sm tw-absolute tw-bg-[#020933] tw-text-white tw-bottom-0 tw-right-0"><i class="ri-add-line"></i></span>
+                  <span @click="MinusQuantity(index)" class="tw-text-[13px] sm:tw-text-base tw-px-1 tw-rounded-sm   tw-font-semibold tw-absolute tw-bg-[#020933] tw-text-white tw-bottom-0 tw-right-9"><i class="ri-subtract-line"></i></span>
+                  <span  @click="removeBookFromCart(index)" class="tw-text-[13px] sm:tw-text-xl tw-px-1   tw-rounded-sm tw-font-semibold tw-absolute  tw-text-red-700 tw-top-0 tw-text-lg tw-right-1"><i class="ri-close-line"></i></span>
+               </div>
+            </div>
+         </div>
+         <div
+            class="tw-my-10 tw-rounded-md lg:tw-hidden tw-w-11/12 sm:tw-text-base tw-text-sm tw-font-bold tw-flex tw-justify-around tw-items-center tw-py-2 tw-bg-white tw-shadow-2xl tw-border-[#020933]">
+          <div class="tw-flex">
+            <span
+               class="tw-flex   tw-items-center tw-justify-center  tw-p-1  tw-text-[#020933]">
+               Grand Total :
+            </span>
+            <span
+               class="tw-flex  tw-items-center tw-justify-center  tw-p-1  tw-text-[#020933]">
+               ₹{{ GrandTotalPrice }}
+            </span>
+          </div>
+          <div>
+            <span @click="makePayment"
+               class="tw-my-3 tw-flex tw-py-1 tw-px-2 tw-cursor-pointer tw-items-center tw-justify-center tw-rounded-3xl tw-bg-yellow-600   tw-text-[#020933] tw-transition-colors tw-duration-700 hover:tw-bg-[#020933] hover:tw-text-white">
+               Payment
+            </span>
+          </div>
+           
+    
+         </div>
+        
+      </div>
+      <div class="tw-my-14 lg:tw-flex tw-hidden tw-items-center tw-justify-center lg:tw-flex-col tw-w-[880px] tw-p-2">
          <div class="tw-flex tw-justify-center tw-bg-gray-200 tw-text-lg tw-font-bold tw-border-2 tw-border-[#020933]">
             <span
                class="tw-flex tw-w-20 tw-items-center tw-justify-center tw-border-r-2 tw-border-[#020933]  tw-p-1  tw-text-[#020933]">
@@ -198,7 +245,7 @@ async function makePayment() {
             </span>
          </div>
          <div
-            class="tw-my-10 tw-bg-gray-100 tw-text-lg tw-font-bold tw-flex tw-items-center  tw-justify-center tw-border-2 tw-border-[#020933]">
+            class="tw-my-10 tw-px-4 tw-bg-gray-100 tw-text-lg tw-font-bold tw-flex tw-items-center  tw-justify-center tw-border-2 tw-border-[#020933]">
             <span
                class="tw-flex tw-w-32 tw-items-center tw-justify-center  tw-p-1  tw-text-[#020933]">
                Grand Total :

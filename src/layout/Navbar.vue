@@ -22,11 +22,11 @@ const showLogout = ref(false);
 </script>
 <template>
    
-    <div class="tw-w-full tw-z-10 tw-sticky tw-top-0 tw-flex tw-justify-between col tw-bg-yellow-600 tw-p-1 tw-px-6 tw-items-center">
-        <div class="">
+    <div class="tw-w-full tw-z-10 tw-sticky tw-top-0 tw-flex tw-justify-between  tw-bg-yellow-600 tw-p-1 tw-px-6 tw-items-center">
+        <router-link to="/home" class="">
             <img class="tw-w-14 tw-cursor-pointer  xxs-300:tw-h-10 xxs-300:tw-w-10 tw-h-14 tw-rounded-[50%]" src="/images/booksLogo.jpeg" alt="logo">
-        </div>
-        <div class="tw-flex tw-gap-9 xxs-300:tw-hidden tw-ml-40 tw-text-base">
+        </router-link>
+        <div class="lg:tw-flex tw-gap-9 xxs-300:tw-hidden  tw-ml-40 tw-text-base">
             <div class="tw-flex tw-flex-col ">
                 <router-link to="/home" class="tw-text-[#020933]  hover:tw-bg-[#020933] tw-rounded-tl-md  tw-rounded-tr-md hover:tw-text-white tw-py-[3px] tw-px-3 tw-cursor-pointer  tw-font-semibold tw-transition-colors tw-duration-200 tw-ease-in  ">Home</router-link>
                 <span class="tw-bg-[#020933] tw-h-[2px]"></span>
