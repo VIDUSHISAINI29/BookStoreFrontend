@@ -6,6 +6,8 @@ const global = useGlobalStore();
 import { useAuth0 } from '@auth0/auth0-vue';
 import { ref } from "vue";
 
+const sidebarTransform = ref('tw-translate-x-[100%] tw-hidden');
+const overlayTransform = ref('tw-translate-x-[-105%] ');
 const profileHovered = ref(false);
 const showLogout = ref(false);
     const auth0 = useAuth0();
@@ -17,12 +19,24 @@ const showLogout = ref(false);
           } 
         });
       }
- 
+function makeIcon(){
+    sidebarTransform.value = 'tw-translate-x-[0%] tw-flex '
+    console.log('make clicked');
+    overlayTransform.value = 'tw-translate-x-[0%] tw-flex'
+}
+function disturbIcon(){
+    sidebarTransform.value = 'tw-translate-x-[100%] tw-hidden'
+    console.log('disturbclicked');
+    overlayTransform.value = 'tw-translate-x-[-105%]'
+}
   
 </script>
 <template>
    
-    <div class="tw-w-full tw-z-10 tw-sticky tw-top-0 tw-flex tw-justify-between  tw-bg-yellow-600 tw-p-1 tw-px-6 tw-items-center">
+    <div class="tw-w-full tw-z-10 tw-sticky tw-p-1 tw-top-0 tw-flex tw-justify-between  tw-bg-yellow-600 md:tw-px-6  tw-items-center">
+        
+      
+       
         <router-link to="/home" class="">
             <img class="tw-w-14 tw-cursor-pointer  xxs-300:tw-h-10 xxs-300:tw-w-10 tw-h-14 tw-rounded-[50%]" src="/images/booksLogo.jpeg" alt="logo">
         </router-link>
@@ -53,14 +67,19 @@ const showLogout = ref(false);
                 </div>
             </div>
         </div>
-        <div class="tw-flex tw-gap-8">
+        <div class="tw-flex xxs-300:tw-gap-1 md:tw-gap-8">
            <div class="tw-relative">
             <RouterLink to="/cart" class="ri-shopping-cart-2-fill tw-cursor-pointer tw-text-[#020933] tw-text-4xl"></RouterLink>
             <span class="tw-block tw-absolute tw-top-0 tw-right-0 tw-w-4 tw-h-4 tw-rounded-[50%] tw-font-bold tw-bg-[#ffe19f] tw-text-[11px] tw-text-[#020933] tw-text-center">{{ global.numberOfBooks }}</span>
            </div>
+           <i @click="makeIcon" v-if="global.profileName" class="ri-menu-3-line tw-cursor-pointer tw-text-[#020933] tw-font-semibold tw-text-4xl"></i>
           
-            <span @mouseover="profileHovered= true" @mouseleave="profileHovered = false" class="tw-text-white tw-border-2 tw-border-[#020933]  tw-transition-all tw-duration-200 tw-cursor-pointer tw-border-2-[#020933] hover:tw-bg-[#ffe19f] tw-font-semibold hover:bShadow tw-p-[4px] tw-text-base tw-flex tw-justify-center tw-items-center hover:tw-shadow-whiteShadow tw-rounded-3xl tw-bg-[#ffe19f] hover:tw-text-[#020933] hover:tw-border-2-[#020933]"><img class="tw-w-8 tw-h-8 tw-rounded-[50%]" :src="global.profileImg" alt=""></span>
+            <span @mouseover="profileHovered= true" @mouseleave="profileHovered = false" class="tw-text-white xxs-300:tw-hidden lg:tw-flex tw-border-2 tw-border-[#020933]  tw-transition-all tw-duration-200 tw-cursor-pointer tw-border-2-[#020933] hover:tw-bg-[#ffe19f] tw-font-semibold hover:bShadow tw-p-[4px] tw-text-base tw-flex tw-justify-center tw-items-center hover:tw-shadow-whiteShadow tw-rounded-3xl tw-bg-[#ffe19f] hover:tw-text-[#020933] hover:tw-border-2-[#020933]"><img class="tw-w-8 tw-h-8 tw-rounded-[50%]" :src="global.profileImg" alt=""></span>
         </div>
     </div>
+    <div class="tw-w-full tw-absolute tw-top-0 tw-flex tw-z-20">
+            <div :class="['tw-absolute tw-top-0 tw-right-0 tw-transition-transform tw-duration-500 tw-bg-pink-200 tw-transform tw-w-[70%]  tw-h-screen', sidebarTransform]"></div>
+            <div :class="['tw-bg-black  tw-opacity-45 tw-transform tw-transition-transform tw-duration-500 tw-h-screen tw-absolute tw-top-0 tw-left-0 tw-w-[30%]', overlayTransform]" @click="disturbIcon"></div>
+        </div>
   
 </template>

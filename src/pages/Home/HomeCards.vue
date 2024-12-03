@@ -38,9 +38,9 @@ async function loadData() {
        bookName.value = book.bookName.split("(")[0];
       bookNameLength.value = book.bookName.split(' ').length
       
-   if(bookNameLength.value > 4)
+   if(bookNameLength.value > 3)
    {
-      bookName.value = bookName.value.slice(0,27) + '...';
+      bookName.value = bookName.value.slice(0,20) + '...';
    }
    return bookName.value
    });
