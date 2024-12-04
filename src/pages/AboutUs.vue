@@ -59,15 +59,15 @@
               
             </div>
           
-            <div class="md:tw-flex xxs-300:tw-hidden  tw-w-full md:tw-flex-nowrap  xxs-300:tw-flex-wrap  tw-gap-2">
-               <div class="tw-flex tw-w-1/2 tw-items-center tw-justify-center">
+            <div class="md:tw-flex   tw-w-full md:tw-flex-nowrap  xxs-300:tw-flex-wrap  tw-gap-2">
+               <div class="tw-flex tw-w-full tw-items-center tw-justify-center">
                  <img
                     class="md:tw-h-[280px] md:tw-w-[360px] xxs-300:tw-w-full xxs-300:tw-h-48"
                     src="/images/AboutUs2.jpg"
                     alt="" />
               </div>
               <div
-                 class="tw-flex xxs-300:tw-w-full  lg:tw-w-[85%]  xxs-300:tw-text-[11px] lg:tw-text-xl tw-flex-col tw-items-center tw-justify-center xxs-300:tw-gap-3 lg:tw-gap-10">
+                 class="tw-flex xxs-300:tw-w-full tw-mb-6 lg:tw-w-[85%]  xxs-300:tw-text-[11px] lg:tw-text-xl tw-flex-col tw-items-center tw-justify-center xxs-300:tw-gap-3 lg:tw-gap-10">
                  <span class=" tw-font-semibold tw-text-[#020933]">
                      We strive to make books accessible and affordable with
                      exclusive discounts and a seamless shopping experience. Our

@@ -19,12 +19,12 @@ const showLogout = ref(false);
           } 
         });
       }
-function makeIcon(){
+function makeSidebarClass(){
     sidebarTransform.value = 'tw-translate-x-[0%] tw-flex '
     console.log('make clicked');
     overlayTransform.value = 'tw-translate-x-[0%] tw-flex'
 }
-function disturbIcon(){
+function disturbSidebarClass(){
     sidebarTransform.value = 'tw-translate-x-[100%] tw-hidden'
     console.log('disturbclicked');
     overlayTransform.value = 'tw-translate-x-[-105%]'
@@ -72,14 +72,39 @@ function disturbIcon(){
             <RouterLink to="/cart" class="ri-shopping-cart-2-fill tw-cursor-pointer tw-text-[#020933] tw-text-4xl"></RouterLink>
             <span class="tw-block tw-absolute tw-top-0 tw-right-0 tw-w-4 tw-h-4 tw-rounded-[50%] tw-font-bold tw-bg-[#ffe19f] tw-text-[11px] tw-text-[#020933] tw-text-center">{{ global.numberOfBooks }}</span>
            </div>
-           <i @click="makeIcon" v-if="global.profileName" class="ri-menu-3-line tw-cursor-pointer tw-text-[#020933] tw-font-semibold tw-text-4xl"></i>
+           <i @click="makeSidebarClass" class="ri-menu-3-line lg:tw-hidden tw-flex tw-cursor-pointer tw-text-[#020933] tw-font-semibold tw-text-4xl"></i>
           
             <span @mouseover="profileHovered= true" @mouseleave="profileHovered = false" class="tw-text-white xxs-300:tw-hidden lg:tw-flex tw-border-2 tw-border-[#020933]  tw-transition-all tw-duration-200 tw-cursor-pointer tw-border-2-[#020933] hover:tw-bg-[#ffe19f] tw-font-semibold hover:bShadow tw-p-[4px] tw-text-base tw-flex tw-justify-center tw-items-center hover:tw-shadow-whiteShadow tw-rounded-3xl tw-bg-[#ffe19f] hover:tw-text-[#020933] hover:tw-border-2-[#020933]"><img class="tw-w-8 tw-h-8 tw-rounded-[50%]" :src="global.profileImg" alt=""></span>
         </div>
     </div>
-    <div class="tw-w-full tw-absolute tw-top-0 tw-flex tw-z-20">
-            <div :class="['tw-absolute tw-top-0 tw-right-0 tw-transition-transform tw-duration-500 tw-bg-pink-200 tw-transform tw-w-[70%]  tw-h-screen', sidebarTransform]"></div>
-            <div :class="['tw-bg-black  tw-opacity-45 tw-transform tw-transition-transform tw-duration-500 tw-h-screen tw-absolute tw-top-0 tw-left-0 tw-w-[30%]', overlayTransform]" @click="disturbIcon"></div>
+    <div class="tw-w-full tw-fixed tw-top-0 tw-flex tw-z-20">
+            <div :class="['tw-absolute tw-top-0 tw-right-0 tw-transition-transform tw-duration-500 tw-bg-white tw-transform tw-w-[70%]  tw-h-screen tw-flex tw-flex-col tw-gap-4', sidebarTransform]">
+                <div class="tw-w-full tw-flex tw-justify-between tw-items-center tw-h-12 tw-shadow-2xl tw-p-1 tw-bg-white">
+                    <img @click="disturbSidebarClass" class="tw-w-14 tw-cursor-pointer  xxs-300:tw-h-10 xxs-300:tw-w-10 tw-h-14 tw-rounded-[50%]" src="/images/booksLogo.jpeg" alt="logo">
+                    <i @click="disturbSidebarClass"
+                 
+                  class="ri-close-line tw-cursor-pointer tw-text-3xl tw-font-semibold tw-text-[#020933]"></i>
+                </div>
+                <div class=" tw-flex tw-flex-col tw-w-full tw-items-center  tw-gap-3">
+                   <div class="tw-w-[96%] tw-shadow-xl tw-flex tw-justify-center tw-p-2 tw-bg-gray-200 tw-rounded-md">
+                    <router-link @click="disturbSidebarClass" to="/home" class="tw-cursor-pointer tw-w-28 tw-text-center tw-p-1 tw-font-semibold tw-text-base hover:tw-bg-[#020933] hover:tw-text-white tw-transition-colors tw-duration-500 tw-rounded-tr-md tw-rounded-tl-md tw-bg-yellow-600">Home</router-link>
+                   </div>
+                   <div  class="tw-w-[96%] tw-shadow-xl tw-flex tw-justify-center tw-p-2 tw-bg-gray-200 tw-rounded-md">
+                    <router-link @click="disturbSidebarClass" to="/about-us" class="tw-cursor-pointer tw-w-28 tw-text-center tw-p-1 tw-font-semibold tw-text-base hover:tw-bg-[#020933] hover:tw-text-white tw-transition-colors tw-duration-500 tw-rounded-tr-md tw-rounded-tl-md tw-bg-yellow-600">About Us</router-link>
+                   </div>
+                    <div  class="tw-w-[96%] tw-shadow-xl tw-flex tw-justify-center tw-p-2 tw-bg-gray-200 tw-rounded-md">
+                        <router-link @click="disturbSidebarClass" to="/contact-us" class="tw-cursor-pointer tw-w-28 tw-text-center tw-p-1 tw-font-semibold tw-text-base hover:tw-bg-[#020933] hover:tw-text-white tw-transition-colors tw-duration-500 tw-rounded-tr-md tw-rounded-tl-md tw-bg-yellow-600">Contact Us</router-link>
+                    </div>
+                  <div  class="tw-w-[96%] tw-shadow-xl tw-flex tw-justify-center tw-p-2 tw-bg-gray-200 tw-rounded-md">
+                    <router-link @click="disturbSidebarClass" to="/profile" class="tw-cursor-pointer tw-w-28 tw-text-center tw-p-1 tw-font-semibold tw-text-base hover:tw-bg-[#020933] hover:tw-text-white tw-transition-colors tw-duration-500 tw-rounded-tr-md tw-rounded-tl-md tw-bg-yellow-600">View Profile</router-link>
+                  </div>
+                 <div  class="tw-w-[96%] tw-shadow-xl tw-flex tw-justify-center tw-p-2 tw-bg-gray-200 tw-rounded-md">
+                    <span  @click="logout(); disturbSidebarClass()" class="tw-cursor-pointer tw-w-28 tw-text-center tw-p-1 tw-font-semibold tw-text-base hover:tw-bg-[#020933] hover:tw-text-white tw-transition-colors tw-duration-500 tw-rounded-tr-md tw-rounded-tl-md tw-bg-yellow-600">Logout</span>
+                 </div>
+                </div>
+            </div>
+            <div :class="['tw-bg-black  tw-opacity-45 tw-transform tw-transition-transform tw-duration-500 tw-h-screen tw-absolute tw-top-0 tw-left-0 tw-w-[30%]', overlayTransform]" @click="disturbSidebarClass"></div>
         </div>
   
+
 </template>

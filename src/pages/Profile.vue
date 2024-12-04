@@ -35,20 +35,20 @@ console.log("name:", user.value);
     </div>
 
     <!-- Show user information if authenticated -->
-    <div class="tw-w-full tw-my-12  tw-flex tw-flex-col tw-gap-4 tw-items-center" v-else-if="isAuthenticated">
+    <div class="tw-w-full tw-my-12  lg:tw-text-base xxs-300:tw-text-[10px]  tw-flex tw-flex-col tw-gap-4 tw-items-center" v-else-if="isAuthenticated">
         <img :src="userInfo.value.picture" class="tw-w-40 tw-rounded-[50%] tw-shadow-2xl tw-h-40" :alt="userInfo.value.name" />
-      <h2 class="tw-text-3xl tw-font-semibold tw-text-[#020933]">Welcome, {{ userInfo.value.name }}!</h2>
+      <h2 class="lg:tw-text-3xl xxs-300:tw-text-xl tw-font-semibold tw-text-[#020933]">Welcome, {{ userInfo.value.name }}!</h2>
       <div class="tw-flex tw-w-full tw-gap-4 tw-justify-center tw-items-center">
-        <span  class="tw-bg-gray-200 tw-p-1 tw-w-28 tw-text-center tw-rounded-lg ">Email</span> <span class="tw-w-3 tw-text-end">:</span> <span class="tw-bg-gray-200 tw-p-1 tw-w-56 tw-text-center tw-rounded-lg ">{{ userInfo.value.email }}</span>
+        <span  class="tw-bg-gray-200 tw-p-1 xxs-300:tw-w-20 lg:tw-w-28 tw-text-center tw-rounded-lg ">Email</span> <span class="lg:tw-w-3 xxs-300:tw-w-1 tw-text-end">:</span> <span class="tw-bg-gray-200 tw-p-1 xxs-300:tw-w-48 lg:tw-w-56 tw-text-center tw-rounded-lg ">{{ userInfo.value.email }}</span>
       </div>
       <div class="tw-flex tw-w-full tw-gap-4 tw-justify-center tw-items-center">
-        <span  class="tw-bg-gray-200 tw-p-1 tw-w-28 tw-text-center tw-rounded-lg ">Name</span> <span class="tw-w-3 tw-text-end">:</span> <span class="tw-bg-gray-200 tw-p-1 tw-w-56 tw-text-center tw-rounded-lg ">{{ userInfo.value.name }}</span>
+        <span  class="tw-bg-gray-200 tw-p-1 xxs-300:tw-w-20 lg:tw-w-28 tw-text-center tw-rounded-lg ">Name</span> <span class="lg:tw-w-3 xxs-300:tw-w-1 tw-text-end">:</span> <span class="tw-bg-gray-200 tw-p-1 lg:tw-w-56 tw-text-center xxs-300:tw-w-48 tw-rounded-lg ">{{ userInfo.value.name }}</span>
       </div>
       <div class="tw-flex tw-w-full tw-gap-4 tw-justify-center tw-items-center">
-        <span  class="tw-bg-gray-200 tw-p-1 tw-w-28 tw-text-center tw-rounded-lg ">Nickname</span> <span class="tw-w-3 tw-text-end">:</span> <span class="tw-bg-gray-200 tw-p-1 tw-w-56 tw-text-center tw-rounded-lg ">{{ userInfo.value.nickname }}</span>
+        <span  class="tw-bg-gray-200 tw-p-1 xxs-300:tw-w-20 lg:tw-w-28 tw-text-center tw-rounded-lg ">Nickname</span> <span class="lg:tw-w-3 xxs-300:tw-w-1 tw-text-end">:</span> <span class="tw-bg-gray-200 tw-p-1 lg:tw-w-56 xxs-300:tw-w-48 tw-text-center tw-rounded-lg ">{{ userInfo.value.nickname }}</span>
       </div>
       <div class="tw-flex tw-w-full tw-gap-4 tw-justify-center tw-items-center">
-        <span  class="tw-bg-gray-200 tw-p-1 tw-w-28 tw-text-center tw-rounded-lg ">Updated on</span> <span class="tw-w-3 tw-text-end">:</span> <span class="tw-bg-gray-200 tw-p-1 tw-w-56 tw-text-center tw-rounded-lg ">{{ userInfo.value.updated_at.slice(0,10) }}</span>
+        <span  class="tw-bg-gray-200 tw-p-1 xxs-300:tw-w-20 lg:tw-w-28 tw-text-center tw-rounded-lg ">Updated on</span> <span class="lg:tw-w-3 xxs-300:tw-w-1 tw-text-end">:</span> <span class="tw-bg-gray-200 tw-p-1 lg:tw-w-56 xxs-300:tw-w-48 tw-text-center tw-rounded-lg ">{{ userInfo.value.updated_at.slice(0,10) }}</span>
       </div>
      
       
