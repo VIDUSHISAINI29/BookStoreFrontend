@@ -79,10 +79,10 @@ function sendEmail() {
                         v-model="form.message"
                         placeholder="Your Message"
                         required></textarea>
-                        <span 
+                        <button type="submit" 
                class="tw-my-3 tw-flex xxs-300:tw-p-2 xxs-300:tw-text-[12px] lg:tw-text-base lg:tw-h-10 lg:tw-w-32 tw-cursor-pointer tw-items-center tw-justify-center tw-rounded-xl tw-bg-[#020933] hover:tw-text-[#020933] tw-text-base tw-font-semibold tw-text-white tw-transition-colors tw-duration-700 hover:tw-bg-yellow-600 ">
                Send Messsage
-            </span>
+            </button>
                   </form>
                   <span class="tw-text-black tw-absolute tw-top-0">{{ statusMessage }}</span>
                </div>
