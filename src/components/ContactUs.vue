@@ -83,8 +83,10 @@ function sendEmail() {
                class="tw-my-3 tw-flex xxs-300:tw-p-2 xxs-300:tw-text-[12px] lg:tw-text-base lg:tw-h-10 lg:tw-w-32 tw-cursor-pointer tw-items-center tw-justify-center tw-rounded-xl tw-bg-[#020933] hover:tw-text-[#020933] tw-text-base tw-font-semibold tw-text-white tw-transition-colors tw-duration-700 hover:tw-bg-yellow-600 ">
                Send Messsage
             </button>
+
+            <span class="tw-text-black tw-mb-2">{{ statusMessage }}</span>
                   </form>
-                  <span class="tw-text-black tw-absolute tw-top-0">{{ statusMessage }}</span>
+                  
                </div>
                <div class="lg:tw-w-11/12 lg:tw-flex-row tw-flex xxs-300:tw-flex-col xxs-300:tw-items-center xxs-300:tw-justify-center lg:tw-my-20 lg:tw-justify-around xxs-300:tw-gap-2 lg:tw-gap-20">
                   <div class="tw-flex  tw-gap-1 xxs-300:tw-w-full  tw-w-60 tw-text-[#020933] tw-font-semibold xxs-300:tw-text-sm lg:tw-text-lg  tw-p-1">

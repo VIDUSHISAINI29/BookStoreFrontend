@@ -45,10 +45,10 @@ function disturbSidebarClass(){
                 <router-link to="/home" class="tw-text-[#020933]  hover:tw-bg-[#020933] tw-rounded-tl-md  tw-rounded-tr-md hover:tw-text-white tw-py-[3px] tw-px-3 tw-cursor-pointer  tw-font-semibold tw-transition-colors tw-duration-200 tw-ease-in  ">Home</router-link>
                 <span class="tw-bg-[#020933] tw-h-[2px]"></span>
             </div>
-            <div class="tw-flex tw-flex-col">
+            <!-- <div class="tw-flex tw-flex-col">
                 <router-link to="/profile" class="tw-text-[#020933] hover:tw-bg-[#020933] tw-rounded-tl-md  tw-rounded-tr-md hover:tw-text-white tw-py-[3px] tw-px-3   tw-cursor-pointer  tw-font-semibold tw-transition-colors tw-duration-200 tw-ease-in  ">Profile</router-link>
                 <span class="tw-bg-[#020933] tw-h-[2px]"></span>
-            </div>
+            </div> -->
             <div class="tw-flex tw-flex-col">
                 <router-link to="/about-us" class="tw-text-[#020933] hover:tw-bg-[#020933] tw-rounded-tl-md  tw-rounded-tr-md hover:tw-text-white tw-py-[3px] tw-px-3 tw-cursor-pointer  tw-font-semibold tw-transition-colors tw-duration-200 tw-ease-in  ">About Us</router-link>
                 <span class="tw-bg-[#020933] tw-h-[2px]"></span>
